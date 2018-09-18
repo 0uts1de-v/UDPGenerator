@@ -13,6 +13,8 @@ Generate UDP packets with GUI
 $ python main.py
 ```
 
-That's all!!!
+or if u r using Windows, just run `dist/main.exe`!
+
+That's all!!
 
 Enjoy!!!
