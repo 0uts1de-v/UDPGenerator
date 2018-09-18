@@ -20,10 +20,9 @@ def udp_send():
         Send["text"] = "Wrong Delay"
         return
 
-    client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    Send["command"] = ""  # ボタンの無効化
 
-    Send["text"] = "Sending..."
-    Send["command"] = ""
+    client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
     for i in range(0, num):
         try:
@@ -32,6 +31,7 @@ def udp_send():
         except:
             sent = False
             break
+        Send["text"] = "Sending...\n%d/%d" % (i, num)
         Send.update()
         time.sleep(delay_time)
 
@@ -40,6 +40,7 @@ def udp_send():
     else:
         Send["text"] = "Wrong IP"
     Send["command"] = udp_send
+    return
 
 
 # UDP送信関数
